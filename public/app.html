@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="style.css">
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/521270c0e4b09a53f3486f39/1377031440857-AUN7PYLCW25KNOJH2REF/favicon.ico?format=100w" />
+</head>
+
 <body>
-    <notbutton id = "button">
-        Click Me!
-    </notbutton>
+    <div class="tab">PREGAME
+        <p><input placeholder="Team Number:" oninput="this.className = ''"></p>
+        <p><input placeholder="Match Number:" oninput="this.className = ''"></p>
+      </div>
+      
+      <div class="tab">HYBRID
+        <p><input placeholder="Balls Deposited" oninput="this.className = ''"></p>
+        <p><input placeholder="Water Deposited" oninput="this.className = ''"></p>
+      </div>
+      
+      <div class="tab">TELEOP
+        <p><input placeholder="Ball Deposited" oninput="this.className = ''"></p>
+        <p><input placeholder="Offensive Water Shots Landed" oninput="this.className = ''"></p>
+        <p><input placeholder="Friendly Fire Water Shots Landed" oninput="this.className = ''"></p>
+      </div>
+      
+      <div class="tab">AFTER TELEOP
+        <p><input placeholder="Shoots Position" oninput="this.className = ''"></p>
+        <p><input placeholder="Other Notes" oninput="this.className = ''"></p>
+      </div>
+      
+      <div style="overflow:auto;">
+        <div style="float:right;">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        </div>
+      </div>
+      
+      <!-- Circles which indicates the steps of the form: -->
+      <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
 </body>
-<script src = "script.js">
+<script src="script.js">
 </script>
+
 </html>
