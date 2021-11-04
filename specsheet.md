@@ -13,4 +13,9 @@ Specsheet for team1540 Scouting System
 Uses MongoDB with database named `scouting`.
 ### Database Scheme
 #### Scouting Data
-Scouting data is stoed in a collection called `data`.
+Scouting data is stored in a collection called `data`.
+Each data document contains the following fields
+
+- `team`: team who data is on
+- `scout`: scout who submited
+- `data`: json containing all data collected scouting

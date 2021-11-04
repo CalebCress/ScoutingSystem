@@ -20,7 +20,17 @@ MongoClient.connect(url, function(err, db) {
 })
 
 function dbSubmit(data, scout, team){
-    db.collection("data")
+    let document = {
+        team: team,
+        scout: scout,
+        data: data
+    }
+    db.collection("data").instertOne(document, (err, res) => {
+        if (err) throw err
+        console.log("1 document inserted to data:")
+        console.log(document)
+        db.close()
+    })
 }
 
 /****************************/
@@ -31,7 +41,8 @@ const app = express()
 const port = 3000
 
 app.post('/submit', (req, res) => {
-    
+    let body = await req.body
+    dbSubmit(body.data, body.scout, body.teamNumber)
     res.send(200)
 })
 
