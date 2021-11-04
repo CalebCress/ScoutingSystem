@@ -6,8 +6,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.post('/', (req, res) => {
-  res.send('Hello World!')
+app.post('/submit', (req, res) => {
+  res.send(200)
 })
 
 app.get('/', (req, res) => {
