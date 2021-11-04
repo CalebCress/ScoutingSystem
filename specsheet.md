@@ -1,4 +1,4 @@
-# Sepcsheet
+# Specsheet
 ## API Endpoints
 ### Submit Scouting Data
 - `Endpoint`: `/submit`
