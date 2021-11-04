@@ -1,0 +1,19 @@
+{
+  "name": "scoutingsystem",
+  "version": "1.0.0",
+  "description": "Scouting system for robotics team 1540",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CalebCress/ScoutingSystem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CalebCress/ScoutingSystem/issues"
+  },
+  "homepage": "https://github.com/CalebCress/ScoutingSystem#readme"
+}
