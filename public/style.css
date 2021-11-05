@@ -3,11 +3,11 @@
   }
   
   body {
-    background-color: #f1f1f1;
+    background-color: #ffffff;
   }
   
   #regForm {
-    background-color: #ffffff;
+    background-color: #f1f1f1;
     margin: 100px auto;
     font-family: Raleway;
     padding: 40px;
@@ -16,7 +16,14 @@
   }
   
   h1 {
-    text-align: center;  
+    text-align: center;
+    color: #ff0000;  
+  }
+
+  h2 {
+    text-align: center;
+    color: #f59032;
+    font-size: 2medium;  
   }
   
   input {
@@ -24,7 +31,8 @@
     width: 100%;
     font-size: 17px;
     font-family: Raleway;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #f59032;
+    border-radius: 5px;
   }
   
   /* Mark input boxes that gets an error on validation: */
@@ -38,7 +46,9 @@
   }
   
   button {
-    background-color: #04AA6D;
+    background-color: red;
+    border: 2px solid red;
+    border-radius: 5px;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -48,11 +58,12 @@
   }
   
   button:hover {
-    opacity: 0.8;
+    background-color: #ff0000;
+    color: #ffffff;
   }
   
   #prevBtn {
-    background-color: #bbbbbb;
+    background-color: #ff0000;
   }
   
   /* Make circles that indicate the steps of the form: */
@@ -60,7 +71,7 @@
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbbbbb;
+    background-color: #f59032;
     border: none;  
     border-radius: 50%;
     display: inline-block;
@@ -73,5 +84,72 @@
   
   /* Mark the steps that are finished and valid: */
   .step.finish {
-    background-color: #04AA6D;
+    background-color: #f59032;
+  }
+  /* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
