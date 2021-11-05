@@ -7,16 +7,15 @@ const { MongoClient } = require('mongodb')
 /****************************/
 
 // Connection URI
-const uri =
-  "mongodb+srv://localhost:27017/scouting" //uses scouting database
+const url = "mongodb://localhost:27017/"
 
 // Create a new MongoClient
-const mclient = new MongoClient(uri)
 let db
 
-MongoClient.connect(url, function(err, db) {
+MongoClient.connect(url, function(err, dbc) {
     if (err) throw err
-    db = db.db("mydb")
+    db = dbc.db("scouting")
+    console.log("connected to db")
 })
 
 function dbSubmit(data, scout, team){
@@ -39,9 +38,13 @@ function dbSubmit(data, scout, team){
 
 const app = express()
 const port = 3000
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded())
 
 app.post('/submit', (req, res) => {
-    let body = await req.body
+    let body = req.body
+    console.log(req)
     dbSubmit(body.data, body.scout, body.teamNumber)
     res.send(200)
 })
