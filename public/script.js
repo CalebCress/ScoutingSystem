@@ -1,3 +1,6 @@
+var balls = 0;
+var offWater = 0;
+var FFwater = 0;
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
@@ -53,7 +56,14 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-document.getElementById("button").onclick = ()=> {
-  document.getElementsByTagName("h1")[0].innerText = "HELLO"
-  console.log("changed")
+document.getElementById("plusBalls").onclick = ()=> {
+  balls += 1;
+  document.getElementById("title").innerHTML = balls;
+}
+
+document.getElementById("minusBalls").onclick = ()=> {
+  if (balls >= 1) {
+    balls -= 1;
+  }
+  document.getElementById("title").innerHTML = balls;
 }
