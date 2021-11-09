@@ -33,14 +33,13 @@ function dbSubmit(data, scout, team){
 }
 
 /****************************/
-/*           API            */
+/*        Webserver         */
 /****************************/
 
 const app = express()
 const port = 3000
-const bodyParser = require('body-parser')
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 app.post('/submit', (req, res) => {
     let body = req.body
