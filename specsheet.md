@@ -14,8 +14,25 @@ Uses MongoDB with database named `scouting`.
 ### Database Scheme
 #### Scouting Data
 Scouting data is stored in a collection called `data`.
-Each data document contains the following fields
+Each document contains the following fields
 
-- `team`: team who data is on
+- `teamId`: id of team data is on
 - `scout`: scout who submited
 - `data`: json containing all data collected scouting
+- `eventId`: id of event data was collected
+
+#### Events
+Events stored in collection called `events`.
+Each document contains the following fields
+
+- `id`: id of event
+- `name`: the events name i.e. "Bunny Bots"
+- `teams`: list of team ids participating in the event
+
+#### Teams
+Teams stored in collection called `teams`.
+Each document contains the following fields
+
+- `id`: id of the team
+- `name`: team name
+- `number`: team number
