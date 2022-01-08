@@ -1,22 +1,11 @@
 const express = require('express')
-const { MongoClient } = require('mongodb')
+const mongoose = require('mongoose');
 
 
 /****************************/
 /*         Database         */
 /****************************/
-
-// Connection URI
-const url = "mongodb://localhost:27017/"
-
-// Create a new MongoClient
 let db
-
-MongoClient.connect(url, function(err, dbc) {
-    if (err) throw err
-    db = dbc.db("scouting")
-    console.log("connected to db")
-})
 
 function dbSubmit(data, scout, team){
     let document = {
@@ -26,9 +15,6 @@ function dbSubmit(data, scout, team){
     }
     db.collection("data").instertOne(document, (err, res) => {
         if (err) throw err
-        console.log("1 document inserted to data:")
-        console.log(document)
-        db.close()
     })
 }
 
@@ -43,7 +29,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.post('/submit', (req, res) => {
     let body = req.body
-    console.log(req)
+    console.log(body)
     dbSubmit(body.data, body.scout, body.teamNumber)
     res.send(200)
 })
@@ -52,6 +38,12 @@ app.get('/', (req, res) => {
     res.send('scouting system root')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+
+async function main() {
+  await mongoose.connect('mongodb://localhost:27017/scouting');
+  app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  })
+}
+
+main().catch(err => console.log(err));

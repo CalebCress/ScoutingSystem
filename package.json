@@ -18,6 +18,6 @@
   "homepage": "https://github.com/CalebCress/ScoutingSystem#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^4.1.4"
+    "mongoose": "^6.0.12"
   }
 }
