@@ -8,6 +8,24 @@ Specsheet for team1540 Scouting System
   - `data`: json containing scouting data
   - `scout`: id of scout collecting data
   - `teamNumber`: team scouted's number
+ 
+#### Add Team
+- Endpoint: `/addteam`
+- Fields:
+  - `number`: number of the team
+  - `name`: name of the team
+
+#### Add Event
+- Endpoint: `/addteam`
+- Fields:
+  - `name`: name of the event
+  - `teams`: list of teams participating in the event
+
+#### Get Data on Team
+- Endpoint: `/teamdata`
+- Fields:
+  - `teamNumber`: number of the team
+  - `eventId`: id of event data was requested for (0 if all events)
 
 ## Database
 Uses MongoDB with database named `scouting`.
