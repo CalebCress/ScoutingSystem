@@ -8,13 +8,13 @@ Specsheet for team1540 Scouting System
   - `data`: json containing scouting data
   - `scout`: id of scout collecting data
   - `teamNumber`: team scouted's number
+  - `eventId`: id of event data was collected at
  
 #### Add Team
 - Endpoint: `/addteam`
 - Fields:
   - `number`: number of the team
   - `name`: name of the team
-  - `eventId`: id of event data was collected at
 
 #### Add Event
 - Endpoint: `/addteam`
