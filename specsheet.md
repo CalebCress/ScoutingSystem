@@ -35,7 +35,7 @@ Uses MongoDB with database named `scouting`.
 Scouting data is stored in a collection called `data`.
 Each document contains the following fields
 
-- `teamId`: id of team data is on
+- `teamNumber`: number of team data is on
 - `scout`: scout who submited
 - `data`: json containing all data collected scouting
 - `eventId`: id of event data was collected
@@ -52,6 +52,5 @@ Each document contains the following fields
 Teams stored in collection called `teams`.
 Each document contains the following fields
 
-- `id`: id of the team
 - `name`: team name
 - `number`: team number
