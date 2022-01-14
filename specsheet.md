@@ -17,10 +17,15 @@ Specsheet for team1540 Scouting System
   - `name`: name of the team
 
 #### Add Event
-- Endpoint: `/addteam`
+- Endpoint: `/addevent`
 - Fields:
   - `name`: name of the event
   - `teams`: list of teams participating in the event
+
+#### Add Team to Event
+- Enpoint: `/eventteam`
+- Field:
+  - `number`: number of team added
 
 #### Get Data on Team
 - Endpoint: `/teamdata`
