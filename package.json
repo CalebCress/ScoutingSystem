@@ -4,7 +4,7 @@
   "description": "Scouting system for robotics team 1540",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/CalebCress/ScoutingSystem#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^4.3.0"
   }
 }

@@ -4,24 +4,22 @@ const express = require("express");
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /listings.
 const recordRoutes = express.Router();
+const dbo = require('../db/conn');
+
 
 recordRoutes.route("/submit").get(async function (req, res) {
     const dbConnect = dbo.getDb();
-    let id
-
-    dbConnect.collection("teams").findOne({number: req.body.teamNumber}, (err, result) => {
-        if (err) throw err;
-        id = result.id
-    })
-    let data = {
-        teamId: id,
-        scout: res.scout,
-        data: res.data,
-        eventId: res.eventId
-    }
-    dbConnect.collection("data").insertOne(data, (err, res) => {
-        if (err) throw err;
-        console.log("1 document inserted")
+    dbConnect.collection("data").insertOne(req.body, (err, response) => {
+        if (err) {
+            res.status(400).send({
+                err,
+                message: "failed to submit data"
+            })
+        }
         db.close()
     })
 })
+
+
+
+module.exports = recordRoutes;

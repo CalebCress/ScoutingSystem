@@ -1,10 +1,12 @@
 const express = require('express')
 // get MongoDB driver connection
 const dbo = require('./db/conn')
+const cors = require('cors');
 
-const PORT = process.env.PORT || 5000
+const PORT = 5000
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 app.use(require('./routes/record'))
 
