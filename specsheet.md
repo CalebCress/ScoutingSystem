@@ -25,6 +25,7 @@ Specsheet for team1540 Scouting System
 #### Add Team to Event
 - Enpoint: `/eventteam`
 - Field:
+  - `eventId`: id of event to add team too
   - `number`: number of team added
 
 #### Get Data on Team
