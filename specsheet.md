@@ -52,7 +52,7 @@ Each document contains the following fields
 
 - `id`: id of event
 - `name`: the events name i.e. "Bunny Bots"
-- `teams`: list of team ids participating in the event
+- `teams`: list of team numbers participating in the event
 
 #### Teams
 Teams stored in collection called `teams`.
