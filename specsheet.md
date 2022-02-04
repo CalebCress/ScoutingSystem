@@ -43,6 +43,12 @@ Specsheet for team1540 Scouting System
 - Endpoint: `/events`
 - Method: `Get`
 
+#### Get Event
+- Endpoint: `/event`
+- Method: `Post`
+- Fields:
+  - `eventId`: id of the event
+
 ## Database
 Uses MongoDB with database named `scouting`.
 ### Database Scheme

@@ -113,5 +113,17 @@ recordRoutes.route("/events").get((req, res) => {
         }
     })
 })
+recordRoutes.route("/event").get((req, res) => {
+    const dbConnect = dbo.getDb()
+
+    dbConnect.collection("events").find({id: req.body.eventId}).toArray((err, result) => {
+        if (err) {
+            res.status(400).send("Error fetching events!")
+        } else {
+            res.json(result)
+        }
+    })
+})
+
 
 module.exports = recordRoutes
