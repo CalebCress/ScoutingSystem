@@ -1,4 +1,5 @@
 const express = require("express")
+const { json } = require("express/lib/response")
 
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
@@ -93,12 +94,24 @@ recordRoutes.route("/teamdata").post((req, res) => {
     } else {
         dbConnect.collection("data").find({teamNumber: req.body.teamNumber, eventId: req.body.eventId}).toArray(function (err, result) {
             if (err) {
-              res.status(400).send("Error fetching listings!")
-           } else {
-              res.json(result)
+                res.status(400).send("Error fetching listings!")
+            } else {
+                res.json(result)
             }
         })
     }
+})
+
+recordRoutes.route("/events").get((req, res) => {
+    const dbConnect = dbo.getDb()
+
+    dbConnect.collection("events").find({}).toArray((err, result) => {
+        if (err) {
+            res.status(400).send("Error fetching events!")
+        } else {
+            res.json(result)
+        }
+    })
 })
 
 module.exports = recordRoutes

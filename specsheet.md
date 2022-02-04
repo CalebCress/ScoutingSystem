@@ -4,6 +4,7 @@ Specsheet for team1540 Scouting System
 ### API Endpoints
 #### Submit Scouting Data
 - Endpoint: `/submit`
+- Method: `Post`
 - Fields:
   - `data`: json containing scouting data
   - `scout`: id of scout collecting data
@@ -12,27 +13,35 @@ Specsheet for team1540 Scouting System
  
 #### Add Team
 - Endpoint: `/addteam`
+- Method: `Post`
 - Fields:
   - `number`: number of the team
   - `name`: name of the team
 
 #### Add Event
 - Endpoint: `/addevent`
+- Method: `Post`
 - Fields:
   - `name`: name of the event
   - `teams`: list of teams participating in the event
 
 #### Add Team to Event
 - Enpoint: `/eventteam`
+- Method: `Post`
 - Field:
   - `eventId`: id of event to add team too
   - `number`: number of team added
 
 #### Get Data on Team
 - Endpoint: `/teamdata`
+- Method: `Post`
 - Fields:
   - `teamNumber`: number of the team
   - `eventId`: id of event data was requested for (0 if all events)
+
+#### Get Events
+- Endpoint: `/events`
+- Method: `Get`
 
 ## Database
 Uses MongoDB with database named `scouting`.
