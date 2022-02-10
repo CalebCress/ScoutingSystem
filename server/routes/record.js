@@ -59,7 +59,7 @@ recordRoutes.route("/addevent").post(async (req, res) => {
     let event = {
         id: id,
         name: req.body.name,
-        number: req.body.number
+        teams: req.body.teams
     }
     dbConnect.collection("events").insertOne(event, (err, result) => {
         if (err) {
@@ -113,6 +113,7 @@ recordRoutes.route("/events").get((req, res) => {
         }
     })
 })
+
 recordRoutes.route("/event").get((req, res) => {
     const dbConnect = dbo.getDb()
 
@@ -125,5 +126,36 @@ recordRoutes.route("/event").get((req, res) => {
     })
 })
 
+recordRoutes.route("/all").get((req, res) => {
+    let all = {
+        data:[],
+        events:[],
+        teams:[]
+    }
+
+    const dbConnect = dbo.getDb()
+    dbConnect.collection("data").find({}).toArray((err, result) => {
+        if (err) {
+            res.status(400).send("Error getting data")
+        } else {
+            all.data = result
+            dbConnect.collection("events").find({}).toArray((err, result) => {
+                if (err) {
+                    res.status(400).send("Error getting data")
+                } else {
+                    all.events = result
+                    dbConnect.collection("teams").find({}).toArray((err, result) => {
+                        if (err) {
+                            res.status(400).send("Error getting data")
+                        } else {
+                            all.teams = result
+                            res.send(all)
+                        }
+                    })
+                }
+            })
+        }
+    })
+})
 
 module.exports = recordRoutes
