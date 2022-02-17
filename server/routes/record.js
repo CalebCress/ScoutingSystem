@@ -79,6 +79,7 @@ recordRoutes.route("/eventteam").post((req, res) => {
                 teams: req.body.number
             }
     })
+    res.sendStatus(200)
 })
 
 recordRoutes.route("/teamdata").post((req, res) => {
@@ -100,6 +101,7 @@ recordRoutes.route("/teamdata").post((req, res) => {
             }
         })
     }
+    res.sendStatus(200)
 })
 
 recordRoutes.route("/events").get((req, res) => {
@@ -112,6 +114,7 @@ recordRoutes.route("/events").get((req, res) => {
             res.json(result)
         }
     })
+    res.sendStatus(200)
 })
 
 recordRoutes.route("/event").get((req, res) => {
@@ -124,16 +127,17 @@ recordRoutes.route("/event").get((req, res) => {
             res.json(result)
         }
     })
+    res.sendStatus(200)
 })
 
 recordRoutes.route("/all").get((req, res) => {
+    const dbConnect = dbo.getDb()
     let all = {
         data:[],
         events:[],
         teams:[]
     }
 
-    const dbConnect = dbo.getDb()
     dbConnect.collection("data").find({}).toArray((err, result) => {
         if (err) {
             res.status(400).send("Error getting data")
@@ -155,6 +159,32 @@ recordRoutes.route("/all").get((req, res) => {
                 }
             })
         }
+    })
+    res.sendStatus(200)
+})
+
+recordRoutes.route("/addnote").post((req, res) => {
+    const dbConnect = dbo.getDb()
+    let insertData = req.body
+    if (insertData.name === undefined) {
+        insertData.name = "note"
+    }
+    dbConnect.collection("notes").insertOne(insertData, (err, result) => {
+        if (err) {
+            res.status(400).send(err)
+        }
+    })
+    res.sendStatus(200)
+})
+
+recordRoutes.route("/notes").get((req, res) => {
+    const dbConnect = dbo.getDb
+
+    dbConnect.collection("notes").find({}).toArray((err, result) => {
+        if (err) {
+            res.status(400).send(err)
+        }
+        res.send(result)
     })
 })
 

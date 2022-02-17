@@ -26,11 +26,19 @@ Specsheet for team1540 Scouting System
   - `teams`: list of teams participating in the event
 
 #### Add Team to Event
-- Enpoint: `/eventteam`
+- Endpoint: `/eventteam`
 - Method: `Post`
 - Field:
   - `eventId`: id of event to add team too
   - `number`: number of team added
+
+#### Add Note
+- Endpoint: `/addnote`
+- Method: `Post`
+- Fields:
+  - `name`: name of the note (default to "note")
+  - `notes`: notes taken
+  - `eventId`: id of event notes were taken at
 
 #### Get Data on Team
 - Endpoint: `/teamdata`
@@ -53,6 +61,10 @@ Specsheet for team1540 Scouting System
 - Endpoint: `/all`
 - Method: `Get`
 
+#### Get Notes
+- Endpoint: `/notes`
+- Method: `Get`
+
 ## Database
 Uses MongoDB with database named `scouting`.
 ### Database Scheme
@@ -61,7 +73,7 @@ Scouting data is stored in a collection called `data`.
 Each document contains the following fields
 
 - `teamNumber`: number of team data is on
-- `scout`: scout who submited
+- `scoutId`: id of scout who submited
 - `data`: json containing all data collected scouting
 - `eventId`: id of event data was collected
 
@@ -79,3 +91,10 @@ Each document contains the following fields
 
 - `name`: team name
 - `number`: team number
+
+#### Notes
+Stores custom notes.
+
+- `name`: name of the notes
+- `notes`: notes taken
+- `eventId`: event notes were taken at
