@@ -1,4 +1,6 @@
+require('dotenv').config()
 const express = require('express')
+
 // get MongoDB driver connection
 const dbo = require('./db/conn')
 const cors = require('cors')

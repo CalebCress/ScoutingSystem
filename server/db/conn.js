@@ -1,5 +1,8 @@
 const { MongoClient } = require("mongodb")
-const connectionString = 'mongodb://localhost:27017'
+// const connectionString = 'mongodb://localhost:27017'
+const connectionString = process.env.ATLAS_URI;
+// console.log(process.env)
+
 
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,

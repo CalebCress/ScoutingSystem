@@ -18,6 +18,7 @@
   "homepage": "https://github.com/CalebCress/ScoutingSystem#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.1",
     "mongodb": "^4.3.0"
   }
