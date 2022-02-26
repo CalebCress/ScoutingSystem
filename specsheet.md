@@ -82,6 +82,15 @@ Specsheet for team1540 Scouting System
 - Response Fields:
   - `scouts`: list of id's of queued scouts
 
+#### Get Teams
+- Endpoint: `/roundTeams`
+- Method: `Post`
+- Request Fields:
+  - `roundNumber`: number of round you want to get scouts for
+  - `eventId`: id of event queue is for
+- Response Fields:
+  - `teams`: list of teams playing in round
+
 ## Database
 Uses MongoDB with database named `scouting`.
 ### Database Scheme
