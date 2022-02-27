@@ -178,7 +178,7 @@ recordRoutes.route("/addnote").post((req, res) => {
 })
 
 recordRoutes.route("/notes").get((req, res) => {
-    const dbConnect = dbo.getDb
+    const dbConnect = dbo.getDb()
 
     dbConnect.collection("notes").find({}).toArray((err, result) => {
         if (err) {
@@ -189,7 +189,7 @@ recordRoutes.route("/notes").get((req, res) => {
 })
 
 recordRoutes.route("/queue").post((req, res)=> {
-    const dbConnect = dbo.getDb
+    const dbConnect = dbo.getDb()
     let roundNumber = req.body.roundNumber
     let eventId = req.body.eventId
 
@@ -210,7 +210,7 @@ recordRoutes.route("/queue").post((req, res)=> {
 })
 
 recordRoutes.route("/roundQueue").post((req, res) => {
-    const dbConnect = dbo.getDb
+    const dbConnect = dbo.getDb()
 
     let query = {
         roundNumber: req.body.roundNumber,
