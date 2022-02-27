@@ -86,14 +86,6 @@ Specsheet for team1540 Scouting System
     - `scoutId`: id of scout being queued
     - `teamNumber`: the number of the team being scouted
 
-#### Get Teams
-- Endpoint: `/roundTeams`
-- Method: `Post`
-- Request Fields:
-  - `roundNumber`: number of round you want to get scouts for
-  - `eventId`: id of event queue is for
-- Response Fields:
-  - `teams`: list of teams playing in round
 
 ## Database
 Uses MongoDB with database named `scouting`.
@@ -135,10 +127,4 @@ Stores log of who is scouting each match at events in collection called `scoutin
 - `scoutId`: id of scout
 - `matchNumber`: number of match they will scout
 - `teamNumber`: number of the team that was scouted
-
-#### Match Log
-Stores matches with teams who played at events in collection called `matchLog`.
-
-- `number`: match number
-- `teams`: list of 6 teams in match
-- `eventId`: event id matches are at
+- `eventId`: id of event scouting was at

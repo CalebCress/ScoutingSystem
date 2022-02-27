@@ -188,4 +188,43 @@ recordRoutes.route("/notes").get((req, res) => {
     })
 })
 
+recordRoutes.route("/queue").post((req, res)=> {
+    const dbConnect = dbo.getDb
+    let roundNumber = req.body.roundNumber
+    let eventId = req.body.eventId
+
+    req.body.queue.forEach((queue)=> {
+        let doc = {
+            scoutId: queue.scoutId,
+            eventId: eventId,
+            roundNumber: roundNumber,
+            teamNumber: queue.teamNumber
+        }
+        dbConnect.collection("scoutingLog").insertOne(doc, (err, result) => {
+            if (err) {
+                res.status(400).send(err)
+            }
+        })
+    })
+    res.send(200)
+})
+
+recordRoutes.route("/roundQueue").post((req, res) => {
+    const dbConnect = dbo.getDb
+
+    let query = {
+        roundNumber: req.body.roundNumber,
+        eventId: req.body.eventId
+    }
+
+    dbConnect.collection("scoutingLog").find(query).toArray((err, result) => {
+        if (err) {
+            res.status(400).send(err)
+        }
+        res.send(result)
+    })
+})
+
+
+
 module.exports = recordRoutes
