@@ -70,17 +70,21 @@ Specsheet for team1540 Scouting System
 - Method: `Post`
 - Request Fields:
   - `eventId`: id of event
-  - `scouts`: list of scouts to queue for round
+  - `queue`: list of objects containing values:
+    - `scoutId`: id of scout being queued
+    - `teamNumber`: the number of the team being scouted
   - `roundNumber`: number of round to queue scouts for
 
-#### Get Queued Scouts
+#### Get Queued For Round
 - Endpoint: `/roundQueue`
 - Method: `Post`
 - Request Fields:
   - `roundNumber`: number of round you want to get scouts for
   - `eventId`: id of event queue is for
 - Response Fields:
-  - `scouts`: list of id's of queued scouts
+  - `queue`: list of objects containing values:
+    - `scoutId`: id of scout being queued
+    - `teamNumber`: the number of the team being scouted
 
 #### Get Teams
 - Endpoint: `/roundTeams`
@@ -130,6 +134,7 @@ Stores log of who is scouting each match at events in collection called `scoutin
 
 - `scoutId`: id of scout
 - `matchNumber`: number of match they will scout
+- `teamNumber`: number of the team that was scouted
 
 #### Match Log
 Stores matches with teams who played at events in collection called `matchLog`.
