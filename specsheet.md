@@ -119,6 +119,7 @@ Stores custom notes in collection called `notes`.
 
 - `name`: name of the notes
 - `notes`: notes taken
+- `scoutId`: scout who took notes
 - `eventId`: event notes were taken at
 
 #### Scouting Log
